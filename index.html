@@ -75,43 +75,55 @@ h2,h3{text-wrap:balance}
 @media (max-width:860px){.nav ul{display:none}}
 @media (max-width:420px){.logo span{display:none}}
 
-/* Hero */
-.hero{position:relative;padding-block:clamp(120px,16vh,170px) clamp(40px,6vw,72px);isolation:isolate}
+/* Hero: two columns. Left = name (one line, fitted to its column), title, intro, links. Right = route card. */
+.hero{position:relative;padding-block:clamp(112px,15vh,150px) clamp(56px,7vw,96px);isolation:isolate}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(600px circle at var(--mx,70%) var(--my,30%),var(--glow),transparent 60%),
              radial-gradient(900px circle at 10% 110%,var(--indigo-glow),transparent 60%)}
-.hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-bottom:clamp(18px,3vw,32px)}
-.name{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.2em;min-width:0}
-.name .l1,.name .l2{white-space:nowrap;width:max-content}
-.name .l1{font-size:clamp(56px,11vw,160px)}
-.name .l2{font-size:clamp(56px,11vw,160px);color:var(--sodium);line-height:.9}
+.hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;margin-bottom:clamp(28px,4vw,48px)}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--ivory);padding:7px 14px 7px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(240,235,225,.04)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(32px,5vw,80px);align-items:center}
+.hero-grid > *{min-width:0}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+
+.name{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.005em;display:flex;flex-wrap:nowrap;align-items:baseline;column-gap:.2em;min-width:0;font-size:clamp(44px,7vw,104px)}
+.name .l1,.name .l2{white-space:nowrap}
+.name .l2{color:var(--sodium)}
 .name .char{display:inline-block;animation:rise 1.2s var(--ease) both;animation-delay:calc(var(--i) * 45ms + 120ms)}
 @keyframes rise{from{transform:translateY(.28em) rotate(5deg);opacity:.2;filter:blur(8px)}}
+.role-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:clamp(14px,1.8vw,22px);padding-bottom:clamp(20px,2.4vw,28px);border-bottom:1px solid var(--line);font-size:clamp(18px,1.6vw,21px);font-weight:500;color:var(--ivory)}
+.role-line .at{color:var(--mist);font-weight:400}
+.role-line .badge{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sodium);border:1px solid rgba(255,138,31,.45);background:rgba(255,138,31,.08);padding:4px 9px;border-radius:999px}
+.lead{margin-top:clamp(20px,2.4vw,28px);font-size:clamp(18px,1.6vw,21px);line-height:1.55;max-width:32em;color:rgba(240,235,225,.86)}
+.lead em{font-family:var(--f-serif);font-size:1.15em;color:var(--sodium)}
 
-.route{position:relative;margin-top:clamp(8px,2vw,24px);height:clamp(120px,20vw,280px);pointer-events:none}
+/* Route card */
+.route-card{position:relative;border:1px solid var(--line);border-radius:24px;background:linear-gradient(160deg,rgba(20,29,53,.85),rgba(14,21,40,.6));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:22px 22px 26px;box-shadow:0 30px 80px -40px rgba(0,0,0,.9)}
+.route-card header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.route-card .live{display:inline-flex;align-items:center;gap:8px}
+.route{position:relative;height:clamp(190px,20vw,250px);margin-block:18px 6px;pointer-events:none}
 .route svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .route .road{fill:none;stroke:rgba(240,235,225,.22);stroke-width:2;stroke-dasharray:3 10;vector-effect:non-scaling-stroke}
 .route .lit{fill:none;stroke:var(--sodium);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 8px rgba(255,138,31,.7))}
 .route .lit.draw{stroke-dasharray:var(--len);animation:draw 2.4s var(--ease) .5s both}
 @keyframes draw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
 .route .car{fill:var(--ivory);filter:drop-shadow(0 0 10px var(--sodium))}
-.stop{position:absolute;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:10px;animation:pop .8s var(--ease) both;animation-delay:calc(900ms + var(--i)*260ms)}
+.stop{position:absolute;transform:translate(-50%,-50%);display:grid;justify-items:center;animation:pop .8s var(--ease) both;animation-delay:calc(900ms + var(--i)*260ms)}
 .stop i{width:14px;height:14px;border-radius:50%;background:var(--night);border:3px solid var(--sodium);box-shadow:0 0 0 6px rgba(255,138,31,.15)}
-.stop span{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(8,13,27,.8);padding:3px 8px;border-radius:4px;white-space:nowrap;transform:translateY(-38px);position:absolute}
-@media (max-width:640px){.route{margin-top:8px}}
+.stop span{position:absolute;transform:translateY(-34px);font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(8,13,27,.85);padding:3px 8px;border-radius:4px;white-space:nowrap}
 @keyframes pop{from{transform:translate(-50%,-50%) scale(.3);opacity:.2}}
+.route-card footer{display:flex;flex-wrap:wrap;gap:8px 18px;padding-top:16px;border-top:1px dashed var(--line);padding-right:120px}
+.route-card footer span{font-family:var(--f-mono);font-size:12px;color:var(--mist)}
+.route-card footer b{color:var(--ivory);font-weight:500}
 
-.hero-bottom{display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:32px;align-items:end;margin-top:clamp(24px,4vw,48px)}
-.lead{font-size:clamp(19px,2vw,24px);line-height:1.45;max-width:30em;color:var(--ivory)}
-.lead em{font-family:var(--f-serif);font-size:1.15em;color:var(--sodium)}
-.status{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-size:14px;color:var(--mist)}
-.orb{position:relative;display:grid;place-items:center;width:clamp(128px,13vw,168px);aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--sodium);color:var(--on-sodium);text-decoration:none;font-weight:600;font-size:16px;will-change:transform}
+.orb{position:absolute;right:22px;bottom:-46px;display:grid;place-items:center;width:112px;aspect-ratio:1;border-radius:50%;background:var(--sodium);color:var(--on-sodium);text-decoration:none;font-weight:600;font-size:16px;will-change:transform;box-shadow:0 14px 40px -10px rgba(255,138,31,.6)}
 .orb svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 16s linear infinite}
 .orb text{font-family:var(--f-mono);font-size:8.6px;letter-spacing:.32em;text-transform:uppercase;fill:var(--on-sodium)}
-.orb .arrow{font-size:30px;line-height:1;transition:transform .5s var(--ease)}
+.orb .arrow{font-size:26px;line-height:1;transition:transform .5s var(--ease)}
 .orb:hover .arrow{transform:rotate(-45deg)}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media (max-width:640px){.hero-bottom{grid-template-columns:1fr}.orb{justify-self:start}}
+@media (max-width:900px){.route-card{margin-bottom:40px}}
+@media (max-width:480px){.route-card footer{padding-right:0;padding-bottom:64px}.orb{width:96px;bottom:-38px}}
 
 /* Marquee */
 .marquee{border-block:1px solid var(--line);padding-block:22px;display:grid;gap:10px;overflow:hidden;
@@ -280,37 +292,48 @@ footer a.mono:hover{color:var(--sodium)}
   <section class="hero" id="hero">
     <div class="wrap">
       <div class="hero-top">
-        <span class="mono">Senior Customer Success Specialist · SaaS</span>
+        <span class="status"><i class="pulse"></i>Open to customer success and account management roles</span>
         <span class="mono">Bengaluru · <span id="clock">IST</span></span>
       </div>
-      <h1 class="name" aria-label="Ashutosh Kumar">
-        <span class="l1 split">Ashutosh</span>
-        <span class="l2 split serif">Kumar.</span>
-      </h1>
 
-      <div class="route" id="route" aria-hidden="true">
-        <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
-          <path id="routePath" class="road" d="M-20 240 C 160 240, 220 110, 390 120 S 610 260, 770 200 S 1010 60, 1220 90"/>
-          <path class="lit" d="M-20 240 C 160 240, 220 110, 390 120 S 610 260, 770 200 S 1010 60, 1220 90"/>
-          <circle class="car" r="7">
-            <animateMotion dur="11s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#routePath"/></animateMotion>
-          </circle>
-        </svg>
-      </div>
-
-      <div class="hero-bottom">
-        <div>
-          <div class="status"><i class="pulse"></i>Available for customer success and account management roles</div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 class="name" aria-label="Ashutosh Kumar">
+            <span class="l1 split">Ashutosh</span>
+            <span class="l2 split serif">Kumar.</span>
+          </h1>
+          <p class="role-line">Senior Customer Success Specialist <span class="at">at MoveInSync</span> <span class="badge">Promoted Sep 2026</span></p>
           <p class="lead">I keep enterprise accounts <em>on route</em>: onboarded fast, adopted across every location, and profitable long after go-live.</p>
           <div class="hero-links">
             <a class="btn magnetic" href="https://www.linkedin.com/in/ashutosh93014" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
             <a class="btn magnetic" href="mailto:ashutosh93014@gmail.com?subject=Opportunity%20for%20Ashutosh%20Kumar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2 .9v11.6h16V6.4l-8 5.6-8-5.6zM5.6 6 12 10.5 18.4 6H5.6z"/></svg>ashutosh93014@gmail.com</a>
           </div>
         </div>
-        <a class="orb magnetic" href="mailto:ashutosh93014@gmail.com?subject=Opportunity%20for%20Ashutosh%20Kumar" aria-label="Get in touch by email">
-          <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#circ">Get in touch · Get in touch · </textPath></text></svg>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
+
+        <aside class="route-card" aria-label="How I run every account">
+          <header>
+            <span class="mono">How I run every account</span>
+            <span class="mono live"><i class="pulse"></i>Live</span>
+          </header>
+          <div class="route" id="route" aria-hidden="true">
+            <svg viewBox="0 0 600 300" preserveAspectRatio="none">
+              <path id="routePath" class="road" d="M-10 240 C 80 240, 110 110, 195 120 S 305 260, 385 200 S 505 70, 610 90"/>
+              <path class="lit" d="M-10 240 C 80 240, 110 110, 195 120 S 305 260, 385 200 S 505 70, 610 90"/>
+              <circle class="car" r="6">
+                <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#routePath"/></animateMotion>
+              </circle>
+            </svg>
+          </div>
+          <footer>
+            <span><b>₹190 Cr+</b> annual billing</span>
+            <span><b>15,000+</b> employees</span>
+            <span><b>10+</b> enterprise clients</span>
+          </footer>
+          <a class="orb magnetic" href="mailto:ashutosh93014@gmail.com?subject=Opportunity%20for%20Ashutosh%20Kumar" aria-label="Get in touch by email">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#circ">Get in touch · Get in touch · </textPath></text></svg>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </aside>
       </div>
     </div>
   </section>
@@ -505,15 +528,13 @@ footer a.mono:hover{color:var(--sodium)}
   });
 
 
-  /* Fit the name to the column width */
+  /* Fit the name on one line to its column (capped so it stays modest) */
   var nameEl=document.querySelector('.name'),l1=nameEl.querySelector('.l1'),l2=nameEl.querySelector('.l2');
   function fit(){
-    var W=nameEl.clientWidth; if(!W) return;
-    l1.style.fontSize='100px'; l2.style.fontSize='100px';
-    var w1=l1.scrollWidth, w2=l2.scrollWidth, f;
-    if(W>=700){ f=Math.min(W*0.9/(w1+w2+20)*100,150); }
-    else { f=Math.min(W*0.8/Math.max(w1,w2)*100,96); }
-    l1.style.fontSize=f+'px'; l2.style.fontSize=f+'px';
+    var W=nameEl.parentNode.clientWidth; if(!W) return;
+    nameEl.style.fontSize='100px';
+    var need=l1.scrollWidth+l2.scrollWidth+20;
+    nameEl.style.fontSize=Math.min(W*0.98/need*100,104)+'px';
   }
   fit(); window.addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
@@ -533,11 +554,11 @@ footer a.mono:hover{color:var(--sodium)}
     var len=path.getTotalLength();
     lit.style.setProperty('--len',len);
     if(!reduce) lit.classList.add('draw');
-    var names=['Onboard','Adopt','Retain','Grow'],fr=[.17,.4,.64,.87];
+    var names=['Onboard','Adopt','Retain','Grow'],fr=[.2,.42,.64,.86];
     names.forEach(function(n,i){
       var p=path.getPointAtLength(len*fr[i]);
       var d=document.createElement('div');d.className='stop';d.style.setProperty('--i',i);
-      d.style.left=((p.x)/1200*100)+'%';d.style.top=(p.y/300*100)+'%';
+      d.style.left=((p.x)/600*100)+'%';d.style.top=(p.y/300*100)+'%';
       d.innerHTML='<i></i><span>'+n+'</span>';route.appendChild(d);
     });
   }catch(e){}
