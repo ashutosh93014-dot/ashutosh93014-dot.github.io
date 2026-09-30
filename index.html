@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ashutosh Kumar · Customer Success Specialist">
+<meta property="og:title" content="Ashutosh Kumar · Senior Customer Success Specialist">
 <meta property="og:description" content="Enterprise onboarding, account management and P&amp;L ownership for SaaS clients. Based in Bengaluru.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#080D1B">
 <title>Ashutosh Kumar</title>
-<meta name="description" content="Ashutosh Kumar, Customer Success Specialist in Bengaluru. Enterprise onboarding, account management and P&L ownership for SaaS clients.">
+<meta name="description" content="Ashutosh Kumar, Senior Customer Success Specialist in Bengaluru. Enterprise onboarding, account management and P&L ownership for SaaS clients.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
@@ -81,11 +81,10 @@ h2,h3{text-wrap:balance}
   background:radial-gradient(600px circle at var(--mx,70%) var(--my,30%),var(--glow),transparent 60%),
              radial-gradient(900px circle at 10% 110%,var(--indigo-glow),transparent 60%)}
 .hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-bottom:clamp(18px,3vw,32px)}
-.name{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;display:grid;min-width:0}
+.name{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.2em;min-width:0}
 .name .l1,.name .l2{white-space:nowrap;width:max-content}
-.name .l1{justify-self:start}
-.name .l1{font-size:clamp(84px,21vw,300px)}
-.name .l2{font-size:clamp(84px,21vw,300px);justify-self:end;color:var(--sodium);line-height:.9;margin-top:-.04em}
+.name .l1{font-size:clamp(56px,11vw,160px)}
+.name .l2{font-size:clamp(56px,11vw,160px);color:var(--sodium);line-height:.9}
 .name .char{display:inline-block;animation:rise 1.2s var(--ease) both;animation-delay:calc(var(--i) * 45ms + 120ms)}
 @keyframes rise{from{transform:translateY(.28em) rotate(5deg);opacity:.2;filter:blur(8px)}}
 
@@ -216,13 +215,19 @@ section.block{padding-block:clamp(88px,12vw,160px)}
 .contact{position:relative;text-align:center;padding-block:clamp(100px,14vw,180px) clamp(60px,8vw,100px);isolation:isolate;overflow:hidden}
 .contact::before{content:"";position:absolute;left:50%;top:40%;width:min(900px,120vw);aspect-ratio:1;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(circle,rgba(255,138,31,.2),transparent 62%);animation:breathe 7s ease-in-out infinite}
 @keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.12)}}
-.talk{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(76px,17vw,260px);line-height:.85;margin-block:18px 36px}
+.talk{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(52px,8vw,112px);line-height:.9;margin-block:16px 24px}
 .talk .serif{color:var(--sodium);font-size:1.05em}
 .contact .sub{color:var(--mist);max-width:34em;margin:0 auto 40px;font-size:18px}
-.mail{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;max-width:100%}
-.mail-addr{font-family:var(--f-serif);font-style:italic;font-size:clamp(26px,4.4vw,56px);line-height:1.1;word-break:break-all;user-select:all;background:linear-gradient(var(--sodium),var(--sodium)) 0 100%/0 2px no-repeat;transition:background-size .6s var(--ease)}
-.mail:hover .mail-addr{background-size:100% 2px}
-.copy{font:600 15px/1 var(--f-body);padding:14px 20px;border-radius:999px;border:0;background:var(--ivory);color:var(--night);cursor:pointer;will-change:transform}
+.mail{display:flex;flex-wrap:nowrap;align-items:center;gap:16px 20px;width:min(100%,560px);margin-inline:auto;padding:16px 16px 16px 18px;text-align:left;border:1px solid var(--line);border-radius:16px;background:rgba(14,21,40,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .3s}
+.mail:hover{border-color:rgba(255,138,31,.5)}
+.mail-icon{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:rgba(255,138,31,.12);color:var(--sodium)}
+.mail-icon svg{width:22px;height:22px;fill:currentColor}
+.mail-text{flex:1 1 0;min-width:0;display:grid;gap:2px}
+.mail-text .mono{font-size:11px}
+.mail-addr{font-family:var(--f-body);font-weight:500;font-size:clamp(17px,1.8vw,20px);letter-spacing:.005em;color:var(--ivory);overflow-wrap:anywhere;user-select:all}
+.mail-addr-link:hover .mail-addr{color:var(--sodium)}
+.copy{flex:none;font:600 14px/1 var(--f-body);padding:12px 18px;border-radius:10px;border:1px solid var(--line);background:rgba(240,235,225,.06);color:var(--ivory);cursor:pointer;transition:background .25s,border-color .25s}
+.copy:hover{background:rgba(240,235,225,.12);border-color:rgba(240,235,225,.3)}
 .meta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 40px;margin-top:56px}
 footer{border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px}
@@ -275,7 +280,7 @@ footer a.mono:hover{color:var(--sodium)}
   <section class="hero" id="hero">
     <div class="wrap">
       <div class="hero-top">
-        <span class="mono">Customer Success Specialist · SaaS</span>
+        <span class="mono">Senior Customer Success Specialist · SaaS</span>
         <span class="mono">Bengaluru · <span id="clock">IST</span></span>
       </div>
       <h1 class="name" aria-label="Ashutosh Kumar">
@@ -356,8 +361,8 @@ footer a.mono:hover{color:var(--sodium)}
         <h2 class="h2" data-reveal>What I do<br><span class="serif">every day</span></h2>
       </div>
       <div class="role-meta" data-reveal>
-        <strong>Customer Success Specialist, MoveInSync</strong>
-        <span class="mono">Jul 2025 – Present · Bengaluru</span>
+        <strong>Senior Customer Success Specialist, MoveInSync</strong>
+        <span class="mono">Senior since Sep 2026 · Joined Jul 2025 · Bengaluru</span>
       </div>
     </div>
 
@@ -427,7 +432,8 @@ footer a.mono:hover{color:var(--sodium)}
         <li><time>2023</time><h3>Digital Marketing Fundamentals</h3><p>IIDE – The Digital School · Oct 2023</p></li>
         <li><time>2024</time><h3>Campus to Corporate &amp; Financial Literacy</h3><p>Udemy · Jan 2024 &nbsp;/&nbsp; UNICEF · May 2024</p></li>
         <li><time>2025</time><h3>Graduated, Bachelor of Business Administration</h3><p>Galgotias University</p></li>
-        <li class="now"><time>Now</time><h3>Customer Success Specialist, MoveInSync</h3><p>Since July 2025 · enterprise accounts, onboarding and P&amp;L</p></li>
+        <li><time>Jul 2025</time><h3>Joined MoveInSync as Customer Success Specialist</h3><p>Enterprise accounts, onboarding and P&amp;L</p></li>
+        <li class="now"><time>Sep 2026</time><h3>Promoted to Senior Customer Success Specialist</h3><p>MoveInSync · current role</p></li>
       </ol>
     </div>
   </section>
@@ -453,8 +459,12 @@ footer a.mono:hover{color:var(--sodium)}
       <h2 class="talk">Let's <span class="serif">talk</span></h2>
       <p class="sub">I'm looking for customer success, account management and implementation roles at SaaS companies. Email or LinkedIn is the fastest way to reach me.</p>
       <div class="mail">
-        <a class="mail-addr-link" href="mailto:ashutosh93014@gmail.com?subject=Opportunity%20for%20Ashutosh%20Kumar"><span class="mail-addr" id="email">ashutosh93014@gmail.com</span></a>
-        <button class="copy magnetic" id="copy" type="button">Copy email</button>
+        <span class="mail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2 .9v11.6h16V6.4l-8 5.6-8-5.6zM5.6 6 12 10.5 18.4 6H5.6z"/></svg></span>
+        <div class="mail-text">
+          <span class="mono">Email</span>
+          <a class="mail-addr-link" href="mailto:ashutosh93014@gmail.com?subject=Opportunity%20for%20Ashutosh%20Kumar"><span class="mail-addr" id="email">ashutosh93014@gmail.com</span></a>
+        </div>
+        <button class="copy" id="copy" type="button">Copy</button>
       </div>
       <div class="contact-actions">
         <a class="btn solid magnetic" href="mailto:ashutosh93014@gmail.com?subject=Opportunity%20for%20Ashutosh%20Kumar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2 .9v11.6h16V6.4l-8 5.6-8-5.6zM5.6 6 12 10.5 18.4 6H5.6z"/></svg>Send an email</a>
@@ -499,10 +509,11 @@ footer a.mono:hover{color:var(--sodium)}
   var nameEl=document.querySelector('.name'),l1=nameEl.querySelector('.l1'),l2=nameEl.querySelector('.l2');
   function fit(){
     var W=nameEl.clientWidth; if(!W) return;
-    l1.style.fontSize='100px'; var w1=l1.scrollWidth;
-    var f=Math.min(W/w1*100*0.99,320); l1.style.fontSize=f+'px';
-    l2.style.fontSize='100px'; var w2=l2.scrollWidth;
-    l2.style.fontSize=Math.min(f*1.05,W/w2*100*0.99)+'px';
+    l1.style.fontSize='100px'; l2.style.fontSize='100px';
+    var w1=l1.scrollWidth, w2=l2.scrollWidth, f;
+    if(W>=700){ f=Math.min(W*0.9/(w1+w2+20)*100,150); }
+    else { f=Math.min(W*0.8/Math.max(w1,w2)*100,96); }
+    l1.style.fontSize=f+'px'; l2.style.fontSize=f+'px';
   }
   fit(); window.addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
@@ -642,7 +653,7 @@ footer a.mono:hover{color:var(--sodium)}
   var btn=document.getElementById('copy'),em=document.getElementById('email');
   function sel(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);}
   btn.addEventListener('click',function(){
-    var ok=function(){btn.textContent='Copied ✓';setTimeout(function(){btn.textContent='Copy email';},2000);};
+    var ok=function(){btn.textContent='Copied ✓';setTimeout(function(){btn.textContent='Copy';},2000);};
     var fail=function(){sel();btn.textContent='Press Ctrl+C';};
     try{navigator.clipboard.writeText(em.textContent.trim()).then(ok,fail);}catch(e){fail();}
   });
